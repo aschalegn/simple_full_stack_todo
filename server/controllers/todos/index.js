@@ -25,11 +25,20 @@ const updateTodo = async (req, res) => {
 
 const getTodos = async (req, res) => {
     try {
-        const todos = await Todo.find({name:""});
+        const todos = await Todo.find({ name: "" });
         res.status(200).send(todos);
     } catch (error) {
         res.status(400).send("error");
     }
 }
 
-module.exports = { getTodos, addTodo, updateTodo };
+const deleteTodo = async (req, res) => {
+    try {
+        await Todo.findByIdAndDelete(req.paramss.id);
+        res.sendStatus(200);
+    } catch (error) {
+        res.sendStatus(400);
+    }
+}
+
+module.exports = { getTodos, addTodo, updateTodo,deleteTodo };

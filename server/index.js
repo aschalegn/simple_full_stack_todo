@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/todos", routes.todos);
-app.use("/api/v1/users", routes.users);
+// app.use("/api/v1/users", routes.users);
 
 mongoose.connect(process.env.MONGO_DEV_URL)
     .then(() => console.log("connected to db"))
